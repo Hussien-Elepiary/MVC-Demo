@@ -14,5 +14,6 @@ namespace Demo.DAL.Context
         //    => optionsBuilder.UseSqlServer("Server = .; DataBase = MVCDemo; trusted_Connection=true; MultipleActiveResultSets=True;");
 
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

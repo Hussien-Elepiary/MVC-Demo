@@ -1,3 +1,5 @@
+using Demo.BLL.Interfaces;
+using Demo.BLL.Repositories;
 using Demo.DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,8 +32,13 @@ namespace Demo.Pl
             //this line is to Allow Dependance injection For the DataBase 
             services.AddDbContext<MVCAppDemoDbcontext>(options =>
             {
-                options.UseSqlServer("Server = .; DataBase = MVCDemo; trusted_Connection=true; MultipleActiveResultSets=True;");
+                //this line is to get the Connection string form the AppSettings.JSON
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            //Allow the Dependance injection For the BLL Interfaces 
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +55,11 @@ namespace Demo.Pl
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
+            //use static files: requests the files attaced to the main linked resource like BootStrap and it`s Css|Js files 
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

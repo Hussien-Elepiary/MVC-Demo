@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sM3NGcP+PsApmkPCaSks0xnoYHTNXNisC9Cc/hEBHLgNpx3lVeCm5aHcj7SP+CSrt3PwKHOf8E5YFr2/OIBHMg==",
+  "dgSpecHash": "bY6OpiRlevDS7bYPifRg40Bh+uFs1AgMOET4EwUQwJlLWrv2vkqyyffH/mF10HgVs51DRbbrxoxOvvTieIyUtQ==",
   "success": true,
-  "projectFilePath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj",
+  "projectFilePath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\hussi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

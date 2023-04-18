@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo.BLL.Interfaces
 {
-    internal interface IDepartmentRepository
+    public interface IDepartmentRepository:IGenaricRepository<Department>
     {
-        IEnumerable<Department> GetAll();
-        Department Get(int id);
-        int Add(Department department);
-        int Update(Department department);
-        int Delete(Department department);
     }
 }

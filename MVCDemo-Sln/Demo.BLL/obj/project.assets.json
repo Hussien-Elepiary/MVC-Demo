@@ -5912,11 +5912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj",
+      "projectUniqueName": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj",
       "projectName": "Demo.BLL",
-      "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj",
+      "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj",
       "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-      "outputPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\obj\\",
+      "outputPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5936,8 +5936,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj": {
-              "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj"
+            "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj": {
+              "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.Pl\\Demo.PL.csproj": {}
+    "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.Pl\\Demo.PL.csproj": {}
   },
   "projects": {
-    "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj": {
+    "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj",
+        "projectUniqueName": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj",
         "projectName": "Demo.BLL",
-        "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj",
+        "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\obj\\",
+        "outputPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj": {
-                "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj"
+              "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj": {
+                "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj": {
+    "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj",
+        "projectUniqueName": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj",
         "projectName": "Demo.DAL",
-        "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\Demo.DAL.csproj",
+        "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\Demo.DAL.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.DAL\\obj\\",
+        "outputPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -130,14 +130,14 @@
         }
       }
     },
-    "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.Pl\\Demo.PL.csproj": {
+    "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.Pl\\Demo.PL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.Pl\\Demo.PL.csproj",
+        "projectUniqueName": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.Pl\\Demo.PL.csproj",
         "projectName": "Demo.PL",
-        "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.Pl\\Demo.PL.csproj",
+        "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.Pl\\Demo.PL.csproj",
         "packagesPath": "C:\\Users\\hussi\\.nuget\\packages\\",
-        "outputPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.Pl\\obj\\",
+        "outputPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.Pl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -157,8 +157,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj": {
-                "projectPath": "F:\\BackEnd\\MVC\\Demo.Pl-Sln\\Demo.BLL\\Demo.BLL.csproj"
+              "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj": {
+                "projectPath": "F:\\BackEnd\\MVC\\MVC-Demo\\MVCDemo-Sln\\Demo.BLL\\Demo.BLL.csproj"
               }
             }
           }
@@ -176,6 +176,16 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
