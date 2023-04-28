@@ -51,7 +51,11 @@ namespace Demo.PL.Controllers
             {
                 var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
                 _unitOfWork.DepartmentRepository.Add(mappedDept);
-                _unitOfWork.Completed();
+
+                int count = _unitOfWork.Completed();
+                if (count > 0)
+                    TempData["Message"] = "Department is Created Successfully";
+
                 return RedirectToAction(nameof(Index));
             }
             return View(departmentVM);
@@ -95,7 +99,6 @@ namespace Demo.PL.Controllers
             return View(departmentVM);
         }
         #endregion
-
 
         #region Delete
         // /Deparment/Delete

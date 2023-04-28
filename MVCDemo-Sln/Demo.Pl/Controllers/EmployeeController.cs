@@ -59,7 +59,13 @@ namespace Demo.PL.Controllers
                 var mappedEmp = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
 
                 _unitOfWork.EmployeeRepository.Add(mappedEmp);
-                _unitOfWork.Completed();
+
+                
+
+                int count = _unitOfWork.Completed();
+                if(count > 0)
+                    TempData["Message"] = "Employee is Created Successfully";
+
                 return RedirectToAction(nameof(Index));
             }
             return View(employeeVM);

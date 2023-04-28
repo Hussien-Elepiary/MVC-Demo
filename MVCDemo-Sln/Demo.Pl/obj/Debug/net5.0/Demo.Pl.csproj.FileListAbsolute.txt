@@ -847,3 +847,4 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extension
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Shared\_TempMessage.cshtml.g.cs
