@@ -12,8 +12,8 @@ namespace Demo.BLL.Interfaces
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        int Add(T item);
-        int Update(T item);
-        int Delete(T item);
+        void Add(T item);
+        void Update(T item);
+        void Delete(T item);
     }
 }

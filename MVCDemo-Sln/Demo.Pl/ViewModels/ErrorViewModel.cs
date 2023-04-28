@@ -1,6 +1,6 @@
-using System;
 
-namespace Demo.Pl.Models
+
+namespace Demo.PL.ViewModels
 {
     public class ErrorViewModel
     {

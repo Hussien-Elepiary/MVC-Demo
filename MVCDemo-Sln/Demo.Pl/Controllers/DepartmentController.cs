@@ -1,28 +1,39 @@
-﻿using Demo.BLL.Interfaces;
+﻿using AutoMapper;
+using Demo.BLL.Interfaces;
 using Demo.DAL.Models;
+using Demo.PL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace Demo.PL.Controllers
 {
     public class DepartmentController : Controller
     {
-        private IDepartmentRepository _departmentRepository;
+        //private readonly IDepartmentRepository _departmentRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         //when i make an opject of a controler the CLR will call the Ctor 
 
         //for this Ctor to work i have to Allow the Dependance injection like Shown in the StartUp.cs 
-        public DepartmentController(IDepartmentRepository departmentRepository)//Ask the CLR to make|Create a class that implement the IDepartmentRepository 
+        public DepartmentController(/*IDepartmentRepository departmentRepository*/ IUnitOfWork unitOfWork , IMapper mapper)//Ask the CLR to make|Create a class that implement the IDepartmentRepository 
         {
-            _departmentRepository = departmentRepository; //initial it`s value to the _departmentRepository
+            /*_departmentRepository = departmentRepository;*/ //initial it`s value to the _departmentRepository
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         // /Deparment/Index
         public IActionResult Index()
         {
-            var departments = _departmentRepository.GetAll();
+            var departments = _unitOfWork.DepartmentRepository.GetAll();
             // View have Four overloads 1.View() || 2.View(View Name) || 3.View(Model) || 4.View(viewName,Model)
-            return View(departments);
+
+            var mappedEmp = _mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentViewModel>>(departments);
+
+
+            return View(mappedEmp);
         }
 
         #region Create
@@ -34,14 +45,16 @@ namespace Demo.PL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Department department)
+        public IActionResult Create(DepartmentViewModel departmentVM)
         {
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
-                _departmentRepository.Add(department);
+                var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
+                _unitOfWork.DepartmentRepository.Add(mappedDept);
+                _unitOfWork.Completed();
                 return RedirectToAction(nameof(Index));
             }
-            return View(department);
+            return View(departmentVM);
         } 
         #endregion
 
@@ -56,16 +69,18 @@ namespace Demo.PL.Controllers
         //[HttpPut] But Html Form Dose not Support Put
         [HttpPost]
         [ValidateAntiForgeryToken] // To Make sure that the Request is Coming From the Site 
-        public IActionResult Edit([FromRoute]int id, Department department)
+        public IActionResult Edit([FromRoute]int id, DepartmentViewModel departmentVM)
         {
-            if (id != department.Id)
+            if (id != departmentVM.Id)
                 return BadRequest();
 
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
                 try
                 {
-                    _departmentRepository.Update(department);
+                    var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
+                    _unitOfWork.DepartmentRepository.Update(mappedDept);
+                    _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -77,7 +92,7 @@ namespace Demo.PL.Controllers
                 }
                 
             }
-            return View(department);
+            return View(departmentVM);
         }
         #endregion
 
@@ -90,16 +105,18 @@ namespace Demo.PL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete([FromRoute] int id, Department department)
+        public IActionResult Delete([FromRoute] int id, DepartmentViewModel departmentVM)
         {
-            if (id != department.Id)
+            if (id != departmentVM.Id)
                 return BadRequest();
 
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
                 try
                 {
-                    _departmentRepository.Delete(department);
+                    var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
+                    _unitOfWork.DepartmentRepository.Delete(mappedDept);
+                    _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -111,7 +128,7 @@ namespace Demo.PL.Controllers
                 }
 
             }
-            return View(department);
+            return View(departmentVM);
         }
         #endregion
 
@@ -121,11 +138,13 @@ namespace Demo.PL.Controllers
         {
             if (id is null)
                 return BadRequest("There is no id to Search For");
-            var department = _departmentRepository.Get(id.Value);
+            var department = _unitOfWork.DepartmentRepository.Get(id.Value);
             if (department is null)
                 return NotFound();
 
-            return View(viewName, department);
+            var mappedDept = _mapper.Map<Department, DepartmentViewModel>(department);
+
+            return View(viewName, mappedDept);
         } 
         #endregion
     }

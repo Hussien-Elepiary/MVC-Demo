@@ -1,28 +1,45 @@
-﻿using Demo.BLL.Interfaces;
+﻿using AutoMapper;
+using Demo.BLL.Interfaces;
 using Demo.DAL.Models;
+using Demo.PL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Demo.PL.Controllers
 {
     public class EmployeeController : Controller
     {
-        private IEmployeeRepository _employeeRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+        //private readonly IEmployeeRepository _employeeRepository;
+        //private IDepartmentRepository _departmentRepository;
 
         //when i make an opject of a controler the CLR will call the Ctor 
 
         //for this Ctor to work i have to Allow the Dependance injection like Shown in the StartUp.cs 
-        public EmployeeController(IEmployeeRepository employeeRepository)//Ask the CLR to make|Create a class that implement the IEmployeeRepository 
+        public EmployeeController(IUnitOfWork unitOfWork /*IEmployeeRepository employeeRepository/*, IDepartmentRepository departmentRepository*/, IMapper mapper)//Ask the CLR to make|Create a class that implement the IEmployeeRepository 
         {
-            _employeeRepository = employeeRepository; //initial it`s value to the _EmployeeRepository
+            /*_employeeRepository = employeeRepository;*/ //initial it`s value to the _EmployeeRepository
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+            //_departmentRepository = departmentRepository;
         }
 
         // /Deparment/Index
-        public IActionResult Index()
+        public IActionResult Index(string SearchValue)
         {
-            var Employees = _employeeRepository.GetAll();
+            IEnumerable<Employee> Employees;
+            if (string.IsNullOrEmpty(SearchValue))
+                Employees = _unitOfWork.EmployeeRepository.GetAll();
+            else
+                Employees = _unitOfWork.EmployeeRepository.GetEmployeesByName(SearchValue);
+
+            var mappedEmp = _mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(Employees);
+
             // View have Four overloads 1.View() || 2.View(View Name) || 3.View(Model) || 4.View(viewName,Model)
-            return View(Employees);
+            return View(mappedEmp);
         }
 
         #region Create
@@ -30,18 +47,22 @@ namespace Demo.PL.Controllers
         [HttpGet] //Default
         public IActionResult Create()
         {
+            //ViewBag.Departments = _departmentRepository.GetAll();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(EmployeeViewModel employeeVM)
         {
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
-                _employeeRepository.Add(employee);
+                var mappedEmp = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
+
+                _unitOfWork.EmployeeRepository.Add(mappedEmp);
+                _unitOfWork.Completed();
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(employeeVM);
         }
         #endregion
 
@@ -50,22 +71,26 @@ namespace Demo.PL.Controllers
         [HttpGet] //Default
         public IActionResult Edit(int? id)
         {
+            //ViewBag.Departments = _departmentRepository.GetAll();
             return Details(id, "Edit");
         }
 
         //[HttpPut] But Html Form Dose not Support Put
         [HttpPost]
         [ValidateAntiForgeryToken] // To Make sure that the Request is Coming From the Site 
-        public IActionResult Edit([FromRoute] int id, Employee employee)
+        public IActionResult Edit([FromRoute] int id, EmployeeViewModel employeeVM)
         {
-            if (id != employee.Id)
+            if (id != employeeVM.Id)
                 return BadRequest();
 
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
                 try
                 {
-                    _employeeRepository.Update(employee);
+                    var mappedEmp = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
+
+                    _unitOfWork.EmployeeRepository.Update(mappedEmp);
+                    _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -77,7 +102,7 @@ namespace Demo.PL.Controllers
                 }
 
             }
-            return View(employee);
+            return View(employeeVM);
         }
         #endregion
 
@@ -90,16 +115,19 @@ namespace Demo.PL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete([FromRoute] int id, Employee employee)
+        public IActionResult Delete([FromRoute] int id, EmployeeViewModel employeeVM)
         {
-            if (id != employee.Id)
+            if (id != employeeVM.Id)
                 return BadRequest();
 
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
                 try
                 {
-                    _employeeRepository.Delete(employee);
+                    var mappedEmp = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
+
+                    _unitOfWork.EmployeeRepository.Delete(mappedEmp);
+                    _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -111,7 +139,7 @@ namespace Demo.PL.Controllers
                 }
 
             }
-            return View(employee);
+            return View(employeeVM);
         }
         #endregion
 
@@ -121,11 +149,13 @@ namespace Demo.PL.Controllers
         {
             if (id is null)
                 return BadRequest("There is no id to Search For");
-            var Employee = _employeeRepository.Get(id.Value);
+            var Employee = _unitOfWork.EmployeeRepository.Get(id.Value);
             if (Employee is null)
                 return NotFound();
 
-            return View(viewName, Employee);
+            var mappedEmp = _mapper.Map<Employee, EmployeeViewModel>(Employee);
+
+            return View(viewName, mappedEmp);
         }
         #endregion
     }

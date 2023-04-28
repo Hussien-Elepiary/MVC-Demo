@@ -11,5 +11,6 @@ namespace Demo.BLL.Interfaces
     {
         //IQuerable 
         IQueryable<Employee> GetEmployeesByAddress(string address);
+        public IQueryable<Employee> GetEmployeesByName(string Name);
     }
 }

@@ -19,5 +19,8 @@ namespace Demo.BLL.Repositories
         {
             return _dbContext.Employees.Where(E => E.Address == address);
         }
+
+        public IQueryable<Employee> GetEmployeesByName(string Name)
+            => _dbContext.Employees.Where(E => E.Name.ToLower().Contains(Name.ToLower()));
     }
 }

@@ -1,17 +1,13 @@
 using Demo.BLL.Interfaces;
 using Demo.BLL.Repositories;
 using Demo.DAL.Context;
+using Demo.PL.MappingProfile;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Demo.Pl
 {
@@ -37,8 +33,27 @@ namespace Demo.Pl
             });
 
             //Allow the Dependance injection For the BLL Interfaces 
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            //services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            //services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            //AddScoped
+            ///Gets the data when it gets requested and deletes it after the requset is deleted
+            ///Best uses is for DbContext
+            ///services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            //AddSingleton
+            ///Is a way to get the data one time for the app life time
+            ///Best uses is for Logging Services and caching
+            ///services.AddSingleton<IDepartmentRepository, DepartmentRepository>();
+            //AddTransient 
+            ///Gets the data when it gets requested each time
+            ///services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+
+            //For adding Mapper 
+            services.AddAutoMapper(M => M.AddProfile(new EmployeeProfile()));
+            services.AddAutoMapper(M => M.AddProfile(new DepartmentProfile()));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

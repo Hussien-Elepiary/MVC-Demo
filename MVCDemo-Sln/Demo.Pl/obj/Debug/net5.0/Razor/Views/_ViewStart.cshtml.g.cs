@@ -14,14 +14,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\Views\_ViewImports.cshtml"
-using Demo.Pl;
+using Demo.PL;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\Views\_ViewImports.cshtml"
-using Demo.Pl.Models;
+using Demo.PL.ViewModels;
 
 #line default
 #line hidden
@@ -33,8 +33,15 @@ using Demo.DAL.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\Views\_ViewImports.cshtml"
+using Demo.BLL.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"33746c650e77c029012c1cad2edc44b4003bae79", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec175e4f4ced20d28ea70e676d129b8aae75a95c", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

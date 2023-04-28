@@ -490,7 +490,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Exte
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -516,8 +515,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Exte
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.ObjectPool.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Primitives.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.WebEncoders.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.JSInterop.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Net.Http.Headers.dll
@@ -616,7 +613,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Reflect
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Resources.Reader.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Resources.ResourceManager.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Resources.Writer.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.Unsafe.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.VisualC.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Runtime.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Runtime.Extensions.dll
@@ -840,3 +836,14 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employe
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employee\Delete.cshtml.g.cs
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employee\Details.cshtml.g.cs
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Shared\_ButtonsPartialView.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employee\EmployeePartialViews\CreateEditPartial.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Employee\EmployeePartialViews\DetailsDeletePartial.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Department\PartialViews\CreateEditPartial.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Department\PartialViews\DetailsDeletePartial.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\AutoMapper.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

@@ -1,6 +1,7 @@
 ﻿using Demo.BLL.Interfaces;
 using Demo.DAL.Context;
 using Demo.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,17 +30,11 @@ namespace Demo.BLL.Repositories
             _dbContext = dbContext;
 
         }
-        public int Add(T item)
-        {
-            _dbContext.Set<T>().Add(item);
-            return _dbContext.SaveChanges();
-        }
+        public void Add(T item)
+          =>  _dbContext.Set<T>().Add(item);
 
-        public int Delete(T item)
-        {
-            _dbContext.Set<T>().Remove(item);
-            return _dbContext.SaveChanges();
-        }
+        public void Delete(T item)
+            => _dbContext.Set<T>().Remove(item);
 
         public T Get(int Id)
             //var department =  _dbContext.Departments.Local.Where(D=>D.Id == id).FirstOrDefault();
@@ -48,12 +43,17 @@ namespace Demo.BLL.Repositories
             => _dbContext.Set<T>().Find(Id);
 
         public IEnumerable<T> GetAll()
-            => _dbContext.Set<T>().ToList();
-
-        public int Update(T item)
         {
-            _dbContext.Set<T>().Update(item);
-            return _dbContext.SaveChanges();
+            // this is a wrong way to handle this 
+            // this will be fixed useing the sepecifecation Design patern
+            if (typeof(T) == typeof(Employee))
+                return (IEnumerable<T>)_dbContext.Employees.Include(E => E.Department).ToList();
+            else
+                return _dbContext.Set<T>().ToList();
         }
+           
+
+        public void Update(T item)
+            => _dbContext.Set<T>().Update(item);
     }
 }
