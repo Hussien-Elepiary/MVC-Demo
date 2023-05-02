@@ -5,6 +5,7 @@ using Demo.PL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Demo.PL.Controllers
 {
@@ -25,9 +26,9 @@ namespace Demo.PL.Controllers
         }
 
         // /Deparment/Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var departments = _unitOfWork.DepartmentRepository.GetAll();
+            var departments = await _unitOfWork.DepartmentRepository.GetAll();
             // View have Four overloads 1.View() || 2.View(View Name) || 3.View(Model) || 4.View(viewName,Model)
 
             var mappedEmp = _mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentViewModel>>(departments);
@@ -45,14 +46,14 @@ namespace Demo.PL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(DepartmentViewModel departmentVM)
+        public async Task<IActionResult> Create(DepartmentViewModel departmentVM)
         {
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
                 var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
-                _unitOfWork.DepartmentRepository.Add(mappedDept);
+                await _unitOfWork.DepartmentRepository.Add(mappedDept);
 
-                int count = _unitOfWork.Completed();
+                int count = await _unitOfWork.Completed();
                 if (count > 0)
                     TempData["Message"] = "Department is Created Successfully";
 
@@ -65,15 +66,15 @@ namespace Demo.PL.Controllers
         #region Edit
         // /Deparment/Edit/:id
         [HttpGet] //Default
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return Details(id, "Edit");
+            return await Details(id, "Edit");
         }
 
         //[HttpPut] But Html Form Dose not Support Put
         [HttpPost]
         [ValidateAntiForgeryToken] // To Make sure that the Request is Coming From the Site 
-        public IActionResult Edit([FromRoute]int id, DepartmentViewModel departmentVM)
+        public async Task<IActionResult> Edit([FromRoute]int id, DepartmentViewModel departmentVM)
         {
             if (id != departmentVM.Id)
                 return BadRequest();
@@ -84,7 +85,7 @@ namespace Demo.PL.Controllers
                 {
                     var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
                     _unitOfWork.DepartmentRepository.Update(mappedDept);
-                    _unitOfWork.Completed();
+                    await _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -102,13 +103,13 @@ namespace Demo.PL.Controllers
 
         #region Delete
         // /Deparment/Delete
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-           return Details(id,"Delete");
+           return await Details(id,"Delete");
         }
 
         [HttpPost]
-        public IActionResult Delete([FromRoute] int id, DepartmentViewModel departmentVM)
+        public async Task<IActionResult> Delete([FromRoute] int id, DepartmentViewModel departmentVM)
         {
             if (id != departmentVM.Id)
                 return BadRequest();
@@ -119,7 +120,7 @@ namespace Demo.PL.Controllers
                 {
                     var mappedDept = _mapper.Map<DepartmentViewModel, Department>(departmentVM);
                     _unitOfWork.DepartmentRepository.Delete(mappedDept);
-                    _unitOfWork.Completed();
+                    await _unitOfWork.Completed();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -137,11 +138,11 @@ namespace Demo.PL.Controllers
 
         #region Details
         // /Deparment/Details/:id
-        public IActionResult Details(int? id, string viewName = "Details")
+        public async Task<IActionResult> Details(int? id, string viewName = "Details")
         {
             if (id is null)
                 return BadRequest("There is no id to Search For");
-            var department = _unitOfWork.DepartmentRepository.Get(id.Value);
+            var department = await _unitOfWork.DepartmentRepository.Get(id.Value);
             if (department is null)
                 return NotFound();
 

@@ -30,26 +30,26 @@ namespace Demo.BLL.Repositories
             _dbContext = dbContext;
 
         }
-        public void Add(T item)
-          =>  _dbContext.Set<T>().Add(item);
+        public async Task Add(T item)
+          =>  await _dbContext.Set<T>().AddAsync(item);
 
         public void Delete(T item)
             => _dbContext.Set<T>().Remove(item);
 
-        public T Get(int Id)
+        public async Task<T> Get(int Id)
             //var department =  _dbContext.Departments.Local.Where(D=>D.Id == id).FirstOrDefault();
             //if (department == null)
             //    department = _dbContext.Departments.Where(D => D.Id == id).FirstOrDefault();
-            => _dbContext.Set<T>().Find(Id);
+            => await _dbContext.Set<T>().FindAsync(Id);
 
-        public IEnumerable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
             // this is a wrong way to handle this 
             // this will be fixed useing the sepecifecation Design patern
             if (typeof(T) == typeof(Employee))
-                return (IEnumerable<T>)_dbContext.Employees.Include(E => E.Department).ToList();
+                return (IEnumerable<T>) await _dbContext.Employees.Include(E => E.Department).ToListAsync();
             else
-                return _dbContext.Set<T>().ToList();
+                return await _dbContext.Set<T>().ToListAsync();
         }
            
 

@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Demo.PL.Controllers
 {
@@ -30,11 +31,11 @@ namespace Demo.PL.Controllers
         }
 
         // /Deparment/Index
-        public IActionResult Index(string SearchValue)
+        public async Task<IActionResult> Index(string SearchValue)
         {
             IEnumerable<Employee> Employees;
             if (string.IsNullOrEmpty(SearchValue))
-                Employees = _unitOfWork.EmployeeRepository.GetAll();
+                Employees = await _unitOfWork.EmployeeRepository.GetAll();
             else
                 Employees = _unitOfWork.EmployeeRepository.GetEmployeesByName(SearchValue);
 
@@ -54,7 +55,7 @@ namespace Demo.PL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(EmployeeViewModel employeeVM)
+        public async Task<IActionResult> Create(EmployeeViewModel employeeVM)
         {
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
@@ -63,9 +64,9 @@ namespace Demo.PL.Controllers
 
                 var mappedEmp = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
 
-                _unitOfWork.EmployeeRepository.Add(mappedEmp);
+                await _unitOfWork.EmployeeRepository.Add(mappedEmp);
 
-                int count = _unitOfWork.Completed();
+                int count = await _unitOfWork.Completed();
                 if (count > 0)
                     
                     TempData["Message"] = "Employee is Created Successfully";
@@ -79,10 +80,10 @@ namespace Demo.PL.Controllers
         #region Edit
         // /Deparment/Edit/:id
         [HttpGet] //Default
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             //ViewBag.Departments = _departmentRepository.GetAll();
-            return Details(id, "Edit");
+            return await Details(id, "Edit");
         }
 
         //[HttpPut] But Html Form Dose not Support Put
@@ -125,13 +126,13 @@ namespace Demo.PL.Controllers
 
         #region Delete
         // /Deparment/Delete
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return Details(id, "Delete");
+            return await Details(id, "Delete");
         }
 
         [HttpPost]
-        public IActionResult Delete([FromRoute] int id, EmployeeViewModel employeeVM)
+        public async Task<IActionResult> Delete([FromRoute] int id, EmployeeViewModel employeeVM)
         {
             if (id != employeeVM.Id)
                 return BadRequest();
@@ -143,7 +144,7 @@ namespace Demo.PL.Controllers
                     var mappedEmp = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
                     _unitOfWork.EmployeeRepository.Delete(mappedEmp);
-                    int count = _unitOfWork.Completed();
+                    int count = await _unitOfWork.Completed();
                     if (count > 0)
                         DocumentSettings.DeleteFile(employeeVM.ImageName, "images");
                     return RedirectToAction(nameof(Index));
@@ -163,11 +164,11 @@ namespace Demo.PL.Controllers
 
         #region Details
         // /Deparment/Details/:id
-        public IActionResult Details(int? id, string viewName = "Details")
+        public async Task<IActionResult> Details(int? id, string viewName = "Details")
         {
             if (id is null)
                 return BadRequest("There is no id to Search For");
-            var Employee = _unitOfWork.EmployeeRepository.Get(id.Value);
+            var Employee = await _unitOfWork.EmployeeRepository.Get(id.Value);
             if (Employee is null)
                 return NotFound();
 

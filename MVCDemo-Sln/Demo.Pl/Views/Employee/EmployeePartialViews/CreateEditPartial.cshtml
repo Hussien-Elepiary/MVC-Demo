@@ -4,7 +4,7 @@
 
 @{
     //var departments = new SelectList(ViewBag.Departments, "Id", "Name");
-    var departments = new SelectList(_IUnitOfWork.DepartmentRepository.GetAll(), "Id", "Name");
+    var departments = new SelectList(await _IUnitOfWork.DepartmentRepository.GetAll(), "Id", "Name");
 }
 
 <div class="form-group">

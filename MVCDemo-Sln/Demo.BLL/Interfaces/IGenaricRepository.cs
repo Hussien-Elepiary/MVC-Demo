@@ -10,9 +10,9 @@ namespace Demo.BLL.Interfaces
     //this Genaric InterFace Have the most Common Segneturs 
     public interface IGenaricRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T Get(int id);
-        void Add(T item);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> Get(int id);
+        Task Add(T item);
         void Update(T item);
         void Delete(T item);
     }
