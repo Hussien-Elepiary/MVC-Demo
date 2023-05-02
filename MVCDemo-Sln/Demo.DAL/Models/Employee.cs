@@ -20,6 +20,7 @@ namespace Demo.DAL.Models
         public string PhoneNumber { get; set; }
         public DateTime HireDate { get; set; }
         public DateTime CreateionDate { get; set; } = DateTime.Now;
+        public string ImageName { get; set; }
         [ForeignKey("Department")]
         public int? DepartmentId { get; set; }
 

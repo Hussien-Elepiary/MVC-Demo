@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Demo.BLL.Interfaces;
 using Demo.DAL.Models;
+using Demo.PL.Helpers;
 using Demo.PL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -56,14 +58,16 @@ namespace Demo.PL.Controllers
         {
             if (ModelState.IsValid)//Server Side Validation (BackEnd Validation)
             {
+                if (employeeVM.Image is not null)
+                    employeeVM.ImageName = DocumentSettings.UploadFile(employeeVM.Image, "images");
+
                 var mappedEmp = _mapper.Map<EmployeeViewModel,Employee>(employeeVM);
 
                 _unitOfWork.EmployeeRepository.Add(mappedEmp);
 
-                
-
                 int count = _unitOfWork.Completed();
-                if(count > 0)
+                if (count > 0)
+                    
                     TempData["Message"] = "Employee is Created Successfully";
 
                 return RedirectToAction(nameof(Index));
@@ -93,6 +97,12 @@ namespace Demo.PL.Controllers
             {
                 try
                 {
+                    if (employeeVM.Image is not null)
+                    {
+                        DocumentSettings.DeleteFile(employeeVM.ImageName, "images");
+                        employeeVM.ImageName = DocumentSettings.UploadFile(employeeVM.Image, "images");
+                    }
+                    
                     var mappedEmp = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
                     _unitOfWork.EmployeeRepository.Update(mappedEmp);
@@ -133,7 +143,9 @@ namespace Demo.PL.Controllers
                     var mappedEmp = _mapper.Map<EmployeeViewModel, Employee>(employeeVM);
 
                     _unitOfWork.EmployeeRepository.Delete(mappedEmp);
-                    _unitOfWork.Completed();
+                    int count = _unitOfWork.Completed();
+                    if (count > 0)
+                        DocumentSettings.DeleteFile(employeeVM.ImageName, "images");
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
