@@ -415,8 +415,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspN
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cors.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -500,8 +498,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Exte
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Core.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Stores.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -848,3 +844,14 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extension
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Shared\_TempMessage.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Shared\_AuthLayout.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\CheckYourInbox.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs

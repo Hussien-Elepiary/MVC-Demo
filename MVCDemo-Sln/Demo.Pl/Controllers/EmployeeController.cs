@@ -3,6 +3,7 @@ using Demo.BLL.Interfaces;
 using Demo.DAL.Models;
 using Demo.PL.Helpers;
 using Demo.PL.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using System;
@@ -12,7 +13,9 @@ using System.Threading.Tasks;
 
 namespace Demo.PL.Controllers
 {
-    public class EmployeeController : Controller
+	//this flag is to make sure that the user who will access this controller will be authed to do that 
+	[Authorize]
+	public class EmployeeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

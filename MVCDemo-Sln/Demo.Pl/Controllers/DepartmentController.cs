@@ -2,6 +2,7 @@
 using Demo.BLL.Interfaces;
 using Demo.DAL.Models;
 using Demo.PL.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Demo.PL.Controllers
 {
-    public class DepartmentController : Controller
+	//this flag is to make sure that the user who will access this controller will be authed to do that 
+	[Authorize]
+	public class DepartmentController : Controller
     {
         //private readonly IDepartmentRepository _departmentRepository;
         private readonly IUnitOfWork _unitOfWork;

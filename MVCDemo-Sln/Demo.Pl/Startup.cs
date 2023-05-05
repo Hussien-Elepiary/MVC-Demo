@@ -1,9 +1,12 @@
 using Demo.BLL.Interfaces;
 using Demo.BLL.Repositories;
 using Demo.DAL.Context;
+using Demo.DAL.Models;
 using Demo.PL.MappingProfile;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -54,7 +57,29 @@ namespace Demo.Pl
             services.AddAutoMapper(M => M.AddProfile(new DepartmentProfile()));
 
 
-        }
+            // this Function sets the Defult values For security like (Cookies Expiration time) etc... 
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+				//AddEntityFrameworkStores to Implement the Stores 
+				.AddEntityFrameworkStores<MVCAppDemoDbcontext>()
+                //Adding the Defult Tokens for resetPassword, two factor etc...
+                .AddDefaultTokenProviders();
+
+			//Applying Security 
+			//Manually Wrong way
+			///services.AddScoped<UserManager<ApplicationUser>>();
+			///services.AddScoped<SignInManager<ApplicationUser>>();
+			///services.AddScoped<RoleManager<IdentityRole>>();
+			///
+			///CookieAuthenticationDefaults.AuthenticationScheme is to set a scheme for a cookie
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie/*this is to control Cookie options*/(options=>
+                {
+                    options.LoginPath = "Account/Login"; // this is to make sure if the user is loged in or not if he/she isn`t the app will automaticly route him/her to the login page  
+                    options.AccessDeniedPath = "Home/Error";
+                });
+
+
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -75,6 +100,10 @@ namespace Demo.Pl
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //Activating Cookies and Auth options
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

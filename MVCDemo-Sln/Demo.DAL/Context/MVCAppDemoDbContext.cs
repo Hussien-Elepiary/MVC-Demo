@@ -1,9 +1,10 @@
 ﻿using Demo.DAL.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Demo.DAL.Context
 {
-    public class MVCAppDemoDbcontext:DbContext
+    public class MVCAppDemoDbcontext:IdentityDbContext<ApplicationUser>
     {
         public MVCAppDemoDbcontext(DbContextOptions<MVCAppDemoDbcontext> options):base(options)
         {
@@ -15,5 +16,10 @@ namespace Demo.DAL.Context
 
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
+
+        //public DbSet<IdentityUser> Users { get; set; }
+
+        //public DbSet<IdentityRole> Roles { get; set; }
+
     }
 }
