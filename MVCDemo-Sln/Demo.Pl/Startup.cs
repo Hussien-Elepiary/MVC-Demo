@@ -2,6 +2,9 @@ using Demo.BLL.Interfaces;
 using Demo.BLL.Repositories;
 using Demo.DAL.Context;
 using Demo.DAL.Models;
+using Demo.PL.Helpers;
+using Demo.PL.Helpers.InterFaces;
+using Demo.PL.Helpers.Settings;
 using Demo.PL.MappingProfile;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -79,6 +82,9 @@ namespace Demo.Pl
                 });
 
 
+            //this line is to map the MailSettings Section that we added in the APPSettings Folder to the class we made 
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IEmailSettings,EmailSettings>();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

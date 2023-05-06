@@ -1,5 +1,6 @@
 ﻿using Demo.DAL.Models;
 using Demo.PL.Helpers;
+using Demo.PL.Helpers.InterFaces;
 using Demo.PL.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ namespace Demo.PL.Controllers
     {
 		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly SignInManager<ApplicationUser> _signInManager;
+		private readonly IEmailSettings _emailSettings;
 
-		public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+		public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailSettings emailSettings)
         {
 			_userManager = userManager;
 			_signInManager = signInManager;
+			_emailSettings = emailSettings;
 		}
 
 
@@ -118,7 +121,11 @@ namespace Demo.PL.Controllers
                         Body = passwordResetLink
                     };
 
-                    EmailSettings.SendEmail(email);
+                    // this Function sends the Email using the dotnet built-in library smtp
+                    //_emailSettings.SendEmail(email);
+
+                    // this line sends The Email using the MailKil Library
+                    _emailSettings.SendEmailUsingMailKit(email);
                     return RedirectToAction(nameof(CheckYourInbox));
                 }
                 ModelState.AddModelError(string.Empty, "Email is not Regestered");

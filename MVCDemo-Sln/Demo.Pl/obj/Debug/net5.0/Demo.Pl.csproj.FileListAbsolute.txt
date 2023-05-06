@@ -553,7 +553,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Drawing.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Drawing.Primitives.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Dynamic.Runtime.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Formats.Asn1.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Globalization.Calendars.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Globalization.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Globalization.Extensions.dll
@@ -639,7 +638,6 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Securit
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Security.SecureString.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.ServiceModel.Web.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.ServiceProcess.dll
-F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Text.Encoding.CodePages.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Text.Encoding.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Text.Encoding.Extensions.dll
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\refs\System.Text.Encodings.Web.dll
@@ -855,3 +853,11 @@ F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\CheckYourInbox.cshtml.g.cs
 F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\BouncyCastle.Cryptography.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\MailKit.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\MimeKit.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Formats.Asn1.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\System.Text.Encoding.CodePages.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+F:\BackEnd\MVC\MVC-Demo\MVCDemo-Sln\Demo.Pl\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll
